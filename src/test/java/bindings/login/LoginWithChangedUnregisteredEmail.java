@@ -1,5 +1,6 @@
 package bindings.login;
 
+import cucumber.api.java.After;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.Then;
@@ -71,5 +72,10 @@ public class LoginWithChangedUnregisteredEmail {
     @Then("^I verify that the password field is visible$")
     public void verify_password_field_is_visible() {
         Assert.assertTrue(atlassianRegistrationPage.getPasswordField().isDisplayed());
+    }
+
+    @After
+    public void cleanUp() {
+        driver.close();
     }
 }
